@@ -5,7 +5,7 @@ AC_PREREQ([2.65])
 AC_INIT(g722tools, 0.01, dgoncharov@users.sf.net)
 AC_CONFIG_AUX_DIR(config)
 AM_INIT_AUTOMAKE
-AC_CONFIG_SRCDIR([g722dec.c])
+AC_CONFIG_SRCDIR([src/g722.h])
 AC_CONFIG_HEADERS([config.h])
 
 # Checks for programs.
@@ -25,6 +25,7 @@ AC_TYPE_UINT8_T
 AC_FUNC_MALLOC
 AC_CHECK_FUNCS([memset strerror])
 
-AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([Makefile src/Makefile])
 
 AC_OUTPUT
+

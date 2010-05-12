@@ -1,4 +1,6 @@
 "g722 to pcm" and "pcm to g722" converters.
+
+Copyright (c) 2010 Dmitry Goncharov
 Distributed under the BSD license.
 
 Parts of this software have the following copyright

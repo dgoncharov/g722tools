@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) 2010 Dmitry Goncharov
+ *
+ * Distributed under the BSD License.
+ * (See accompanying file COPYING).
+ */
+
 #include <stdio.h>
 #include <stddef.h>
 #include <stdlib.h>

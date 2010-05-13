@@ -6,17 +6,8 @@
  */
 
 #include <stdio.h>
-#include <stddef.h>
-#include <stdlib.h>
-#include <errno.h>
-#include <string.h>
 #include <stdint.h>
-
-#include <sys/types.h> 
-#include <sys/stat.h> 
 #include <unistd.h> 
-#include <fcntl.h>
-
 #include "g722.h"
 
 /* silence warnings in -ansi -pedantic mode*/
@@ -59,29 +50,24 @@ int main(int argc, char* argv[])
         return 3;
     }
 
-    struct stat st;
-    if (fstat(STDIN_FILENO, &st) < 0)
+    g722_decode_state_t state;
+    g722_decode_init(&state, 64000, flags);
+    char buf[256 * 1024];
+    int16_t outbuf[4 * sizeof buf];
+    int n; 
+    while ((n = read(STDIN_FILENO, buf, sizeof buf)) > 0)
     {
-        perror("cannot get input file size");
-        return 4;
+        int const outlen = g722_decode(&state, outbuf, (const uint8_t*)buf, n);
+        if (write(STDOUT_FILENO, (char*)outbuf, outlen * sizeof(int16_t)) < outlen * sizeof(int16_t))
+        {
+            perror("cannot write");
+            return 4;
+        }
     }
-    char buf[st.st_size];
-    int const n = read(STDIN_FILENO, buf, st.st_size);
-    if (n < st.st_size)
+    if (n < 0)
     {
         perror("cannot read");
         return 5;
-    }
-    int16_t outbuf[st.st_size * 10];
-
-    g722_decode_state_t state;
-    g722_decode_init(&state, 64000, flags);
-    int const outlen = g722_decode(&state, outbuf, (const uint8_t*)buf, st.st_size);
-
-    if (write(STDOUT_FILENO, (char*)outbuf, outlen * sizeof(int16_t)) < outlen * sizeof(int16_t))
-    {
-        perror("cannot write");
-        return 6;
     }
     return 0;
 }

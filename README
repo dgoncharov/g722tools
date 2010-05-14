@@ -1,4 +1,4 @@
-"g722 to pcm" and "pcm to g722" converters.
+g722 encoder and decoder.
 
 Copyright (c) 2010 Dmitry Goncharov
 Distributed under the BSD license.

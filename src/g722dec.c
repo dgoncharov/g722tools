@@ -20,14 +20,13 @@ void print_help()
 {
     fprintf(stderr, "usage: g722dec [options]\n\n"
         "reads g722 encoded audio stream from standard input,\n"
-        "decodes it and writes to standard output\n\n"
-        "  -h           this help message\n"
-        "  -v           version information\n"
-        "  -8           produce 8000 samples/second output audio stream\n"
+        "decodes it to pcm in the raw format and writes to standard output\n\n"
+       "  -8           produce 8000 samples/second output audio stream\n"
         "               16000 is the default\n"
         "  -b<bitrate>  input bitrate. One of 64000, 56000 or 48000\n"
         "               64000 is the default\n"
-        );
+        "  -h           this help message\n"
+        "  -v           version information\n");
 }
 
 int main(int argc, char* argv[])
@@ -35,19 +34,10 @@ int main(int argc, char* argv[])
     int bitrate = 64000;
     int flags = 0;
     int opt;
-    while ((opt = getopt(argc, argv, "hv8b:")) != -1)
+    while ((opt = getopt(argc, argv, "8b:hv")) != -1)
     {
         switch (opt)
         {
-        case 'h':
-            print_help();
-            return 0;
-        case 'v':
-        {
-            char const version[] = "0.01";
-            printf("%s\n", version);
-            return 0;
-        }
         case '8':
             flags |= G722_SAMPLE_RATE_8000;
             break;
@@ -59,6 +49,15 @@ int main(int argc, char* argv[])
                 return 1;
             }
             break;
+        case 'h':
+            print_help();
+            return 0;
+        case 'v':
+        {
+            char const version[] = "0.01";
+            printf("%s\n", version);
+            return 0;
+        }
         default:
             print_help();
             return 2;

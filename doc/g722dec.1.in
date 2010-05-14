@@ -10,7 +10,7 @@ g722dec [options]
 
 .SH "DESCRIPTION"
 .LP
-g722dec reads g722 encoded audio stream from standard input, decodes it and writes to standard output
+g722dec reads g722 encoded audio stream from standard input, decodes it to pcm in the raw format and writes to standard output
 
 .SH "OPTIONS"
 .LP

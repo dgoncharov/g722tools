@@ -25,7 +25,7 @@ AC_TYPE_UINT8_T
 AC_FUNC_MALLOC
 AC_CHECK_FUNCS([memset strerror])
 
-AC_CONFIG_FILES([Makefile src/Makefile doc/Makefile doc/g722dec.1])
+AC_CONFIG_FILES([Makefile src/Makefile doc/Makefile doc/g722dec.1 doc/g722enc.1])
 
 AC_OUTPUT
 

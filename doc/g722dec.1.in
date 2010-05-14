@@ -18,7 +18,9 @@ g722dec reads g722 encoded audio stream from standard input, decodes it to pcm i
 produce 8000 samples/second output audio stream. 16000 is the default
 .TP
 .BR \-b<bitrate>
-input bitrate. One of 64000, 56000 or 48000. 64000 is the default
+assume g722 input audio stream of the specified bitrate.
+.br
+One of 64000, 56000 or 48000. 64000 is the default
 .TP
 .BR \-h
 show help message

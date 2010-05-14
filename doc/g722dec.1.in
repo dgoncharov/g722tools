@@ -1,0 +1,60 @@
+.TH "g722dec" "1" "14 may 2010"  "g722dec @VERSION@" "User commands"
+
+.SH "NAME"
+.LP
+g722dec \- reads g722 encoded audio stream from standard input, decodes it and writes to standard output
+
+.SH "SYNOPSIS"
+.LP
+g722dec [options]
+
+.SH "OPTIONS"
+.LP
+.BR \-8
+produce 8000 samples/second output audio stream. 16000 is the default
+.TP
+.BR \-b<bitrate>
+input bitrate. One of 64000, 56000 or 48000. 64000 is the default
+.TP
+.BR \-h
+show help message
+.TP
+.BR \-v
+show program version
+
+.SH "AUTHORS"
+.LP
+.nf
+Dmitry Goncharov <dgoncharov@users.sf.net>
+.fi
+
+.SH "COPYRIGHT"
+.LP
+Copyright (C) 2010 Dmitry Goncharov.
+.br
+Distributed under the BSD license.
+
+Parts of this software have the following copyright
+.br
+Written by Steve Underwood <steveu@coppice.org>
+.br
+Copyright (C) 2005 Steve Underwood
+
+ Despite my general liking of the GPL, I place my own contributions
+ to this code in the public domain for the benefit of all mankind -
+ even the slimy ones who might try to proprietize my work and use it
+ to my detriment.
+
+Based on a single channel G.722 codec which is:
+.br
+***    Copyright (c) CMU    1993      *****
+.br
+Computer Science, Speech Group
+.br
+Chengxiang Lu and Alex Hauptmann
+    
+
+.SH "HOMEPAGE"
+.LP
+http://github.com/dgoncharov/g722tools
+

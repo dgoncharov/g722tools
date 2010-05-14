@@ -52,12 +52,12 @@ int main(int argc, char* argv[])
 
     g722_decode_state_t state;
     g722_decode_init(&state, 64000, flags);
-    char buf[256 * 1024];
-    int16_t outbuf[4 * sizeof buf];
+    char inbuf[256 * 1024];
+    int16_t outbuf[4 * sizeof inbuf];
     int n; 
-    while ((n = read(STDIN_FILENO, buf, sizeof buf)) > 0)
+    while ((n = read(STDIN_FILENO, inbuf, sizeof inbuf)) > 0)
     {
-        int const outlen = g722_decode(&state, outbuf, (const uint8_t*)buf, n);
+        int const outlen = g722_decode(&state, outbuf, (const uint8_t*)inbuf, n);
         if (write(STDOUT_FILENO, (char*)outbuf, outlen * sizeof(int16_t)) < outlen * sizeof(int16_t))
         {
             perror("cannot write");

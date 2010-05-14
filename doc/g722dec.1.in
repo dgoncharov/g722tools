@@ -62,3 +62,6 @@ Chengxiang Lu and Alex Hauptmann
 .LP
 http://github.com/dgoncharov/g722tools
 
+.SH "SEE ALSO"
+.BR g722enc (1)
+

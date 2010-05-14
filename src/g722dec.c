@@ -21,15 +21,15 @@ void print_help()
     fprintf(stderr, "usage: g722dec [options]\n\n"
         "reads g722 encoded audio stream from standard input,\n"
         "decodes it to pcm in the raw format and writes to standard output\n\n"
-       "  -8           produce 8000 samples/second output audio stream\n"
+        "  -8           produce 8000 samples/second output audio stream\n"
         "               16000 is the default\n"
-        "  -b<bitrate>  input bitrate. One of 64000, 56000 or 48000\n"
-        "               64000 is the default\n"
+        "  -b<bitrate>  assume g722 input audio stream of the specified bitrate\n"
+        "               One of 64000, 56000 or 48000. 64000 is the default\n"
         "  -h           this help message\n"
         "  -v           version information\n");
 }
 
-int main(int argc, char* argv[])
+int main(int argc, char* const argv[])
 {
     int bitrate = 64000;
     int flags = 0;

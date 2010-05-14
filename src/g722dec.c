@@ -16,7 +16,12 @@ extern int optind;
 
 void print_help()
 {
-    fprintf(stderr, "g722dec [-evh]\n");
+    fprintf(stderr, "usage: g722dec [-evh]\n\n"
+        "reads g722 encoded audio stream from standard input,\n"
+        "decodes it and writes to standard output\n\n"
+        "    -h  ths help message\n"
+        "    -v  version information\n"
+        "    -e  produce 8KHz output audio stream\n");
 }
 
 int main(int argc, char* argv[])
@@ -44,7 +49,7 @@ int main(int argc, char* argv[])
             return 2;
         }
     }
-    if (optind > argc)
+    if (optind < argc)
     {
         print_help();
         return 3;

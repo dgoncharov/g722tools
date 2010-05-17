@@ -19,11 +19,11 @@ extern int optind;
 void print_help()
 {
     fprintf(stderr, "usage: g722enc [options]\n\n"
-        "reads raw pcm audio stream from standard input,\n"
+        "reads raw pcm audio from standard input,\n"
         "encodes it to g722 and writes to standard output\n\n"
-        "  -8           assume 8000 samples/second input audio stream\n"
+        "  -8           assume 8000 samples/second input audio\n"
         "               16000 is the default\n"
-        "  -b<bitrate>  produce g722 audio stream of the specified bitrate\n"
+        "  -b<bitrate>  produce g722 audio of the specified bitrate\n"
         "               One of 64000, 56000 or 48000. 64000 is the default\n"
         "  -h           this help message\n"
         "  -v           version information\n");

@@ -2,7 +2,7 @@
 
 .SH "NAME"
 .LP
-g722dec \- g722 audio stream decoder 
+g722dec \- g722 audio decoder 
 
 .SH "SYNOPSIS"
 .LP
@@ -10,15 +10,15 @@ g722dec [options]
 
 .SH "DESCRIPTION"
 .LP
-g722dec reads g722 encoded audio stream from standard input, decodes it to pcm in the raw format and writes to standard output
+g722dec reads g722 encoded audio from standard input, decodes it to pcm in the raw format and writes to standard output
 
 .SH "OPTIONS"
 .LP
 .BR \-8
-produce 8000 samples/second output audio stream. 16000 is the default
+produce 8000 samples/second output audio. 16000 is the default
 .TP
 .BR \-b<bitrate>
-assume g722 input audio stream of the specified bitrate.
+assume g722 input audio of the specified bitrate.
 .br
 One of 64000, 56000 or 48000. 64000 is the default
 .TP
